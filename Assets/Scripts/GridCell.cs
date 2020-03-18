@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
+[ExecuteInEditMode]
 public class GridCell : MonoBehaviour
 {
-    public GameObject fileToEnableOnPress;
     public int rowPosition;
     public int columnPosition;
 
@@ -10,11 +10,9 @@ public class GridCell : MonoBehaviour
 
     //In Pixels
     public int marginInPixels = 20;
-    private bool isSelected = false;
 
     void Start()
     {
-        Debug.Log("Width: " + Screen.width);
         coef = Screen.height / 10f;
         Vector3 pos = transform.position;
         Vector3 scale = transform.localScale;
@@ -37,18 +35,7 @@ public class GridCell : MonoBehaviour
         float rowOffset = (positionOrder - 1) * itemSize + margin * positionOrder;
         return -PixelsToUnits(axisLength / 2) + itemSize / 2 + rowOffset;
     }
-
-    void Update()
-    {
-    }
-
-    void OnMouseUp()
-    {
-        this.isSelected = !this.isSelected;
-        fileToEnableOnPress.SetActive(this.isSelected);
-    }
-
-
+    
     float PixelsToUnits(float pixels)
     {
         return pixels / coef;
