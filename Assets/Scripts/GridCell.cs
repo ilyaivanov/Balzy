@@ -10,10 +10,12 @@ public class GridCell : MonoBehaviour
 
     //In Pixels
     public int marginInPixels = 20;
-
+    public Sprite sprite;
+    
     void Start()
     {
         coef = Screen.height / 10f;
+        Debug.Log("Pixels per unit: " + coef);
         Vector3 pos = transform.position;
         Vector3 scale = transform.localScale;
         scale.x = PixelsToUnits((Screen.width - marginInPixels * 4) / 3);
